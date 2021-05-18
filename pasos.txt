@@ -14,3 +14,10 @@ npx create-react-app .
     and scripts into the app directory. If you do this, you can’t go back!
 
 yarn add uuid
+
+Add typescript
+  https://es.reactjs.org/docs/static-type-checking.html#typescript
+
+ESLint/Prettier
+  yarn add eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react --dev
+  yarn add prettier eslint-config-prettier eslint-plugin-prettier --dev
