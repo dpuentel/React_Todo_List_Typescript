@@ -1,7 +1,7 @@
-import { v4 as uuidv4 } from 'uuid';
+import { TodoId } from './value-object/todo-id';
 
 export class Todo {
-  id: string;
+  id: TodoId;
   task: string;
   completed: boolean;
   completedAt: number | undefined;
@@ -15,7 +15,7 @@ export class Todo {
   children: Todo[];
 
   constructor(task: string, parentId?: string) {
-    this.id = uuidv4();
+    this.id = TodoId.create();
     this.completed = false;
     this.createdAt = Date.now();
     this.workingTime = 0;
@@ -26,6 +26,10 @@ export class Todo {
     if (parentId) {
       this.parentId = parentId;
     }
+  }
+
+  static create(task: string) {
+    return new Todo(task);
   }
 
   private setCompleted() {
@@ -49,6 +53,7 @@ export class Todo {
   static createFromUntypedObject(untypedObject: Todo) {
     let todo = new Todo(untypedObject.task);
     Object.assign(todo, untypedObject);
+    todo.id = new TodoId(untypedObject.id.id);
     return todo;
   }
 }

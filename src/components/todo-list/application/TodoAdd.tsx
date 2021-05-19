@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Todo } from './Todo';
+import { Todo } from '../model/Todo';
 
 interface Props {
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;

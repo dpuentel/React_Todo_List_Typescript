@@ -2,7 +2,7 @@ import React from 'react';
 import { TodoAdd } from './TodoAdd';
 import { TodoRemoveCompleted } from './TodoRemoveCompleted';
 import { TodoCountUncompleted } from './TodoCountUncompleted';
-import { Todo } from './Todo';
+import { Todo } from '../model/Todo';
 
 interface Props {
   todos: Todo[];

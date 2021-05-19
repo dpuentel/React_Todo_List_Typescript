@@ -1,9 +1,10 @@
-import { Todo } from './Todo';
+import { Todo } from '../model/Todo';
+import { TodoId } from '../model/value-object/todo-id';
 import { TodoItem } from './TodoItem';
 
 interface Props {
   todos: Todo[];
-  toogleTodoCompleted: (id: string) => void;
+  toogleTodoCompleted: (todoId: TodoId) => void;
   removeTodo: (id: string) => void;
 }
 
@@ -11,7 +12,7 @@ export function TodoList({ todos, toogleTodoCompleted, removeTodo }: Props) {
   return (
     <ul>
       {todos.map((todo: Todo) => (
-        <TodoItem key={todo.id} todo={todo} toogleTodoCompleted={toogleTodoCompleted} removeTodo={removeTodo} />
+        <TodoItem key={todo.id.get()} todo={todo} toogleTodoCompleted={toogleTodoCompleted} removeTodo={removeTodo} />
       ))}
     </ul>
   );
