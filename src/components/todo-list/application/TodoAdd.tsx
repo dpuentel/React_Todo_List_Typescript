@@ -1,42 +1,52 @@
 import React, { Fragment } from 'react';
 import { Todo } from '../model/Todo';
 
-interface Props {
+interface PropsTodoAdd {
   addTodo: (todo: Todo) => Promise<void>;
 }
 
-export function TodoAdd({ addTodo }: Props) {
-  const todoTaskInputRef: React.RefObject<HTMLInputElement> = React.createRef();
+export class TodoAdd extends React.Component<PropsTodoAdd> {
+  private todoTaskInputRef: React.RefObject<HTMLInputElement> = React.createRef();
 
-  const getInputValue: () => string = () => {
+  getInputValue: () => string = () => {
     let value = '';
-    if (todoTaskInputRef && todoTaskInputRef.current) {
-      value = todoTaskInputRef.current.value;
+    if (this.isDefinedTodoTaskInput()) {
+      value = this.todoTaskInputRef.current!.value;
     }
     return value;
   };
 
-  const clearInputValue = () => {
-    if (todoTaskInputRef && todoTaskInputRef.current) {
-      todoTaskInputRef.current.value = '';
+  clearInputValue: () => void = () => {
+    if (this.isDefinedTodoTaskInput()) {
+      this.todoTaskInputRef.current!.value = '';
     }
   };
 
-  const handleTodoAdd = () => {
-    const task = getInputValue();
+  private isDefinedTodoTaskInput(): boolean {
+    if (this.todoTaskInputRef && this.todoTaskInputRef.current) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  handleTodoAdd: () => void = () => {
+    const task = this.getInputValue();
     if (task === '') return;
 
-    addTodo(new Todo(task));
+    this.props.addTodo(new Todo(task));
 
-    clearInputValue();
+    this.clearInputValue();
   };
 
-  return (
-    <Fragment>
-      <input ref={todoTaskInputRef} type="text" placeholder="New task" />
-      <button onClick={handleTodoAdd} className="addBtn">
-        ➕
-      </button>
-    </Fragment>
-  );
+  render() {
+    return (
+      <Fragment>
+        <input ref={this.todoTaskInputRef} type="text" placeholder="New task" />
+        <button onClick={this.handleTodoAdd} className="addBtn">
+          ➕
+        </button>
+      </Fragment>
+    );
+  }
 }
