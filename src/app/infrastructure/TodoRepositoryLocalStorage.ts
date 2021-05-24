@@ -1,6 +1,6 @@
-import { Todo } from '../model/Todo';
-import { TodoRepository } from '../model/TodoRepository';
-import { TodoId } from '../model/value-object/todo-id';
+import { Todo } from '../../components/todo-list/model/Todo';
+import { TodoRepository } from '../../components/todo-list/model/TodoRepository';
+import { TodoId } from '../../components/todo-list/model/value-object/todo-id';
 
 export class TodoRepositoryLocalStorage implements TodoRepository {
   private LOCAL_STORAGE_KEY: string = 'todoApp.todos';

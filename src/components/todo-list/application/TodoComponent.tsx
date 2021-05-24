@@ -1,7 +1,6 @@
 import { Fragment, useEffect, useState } from 'react';
 import { TodoList } from '../application/TodoList';
 import { TodoControl } from '../application/TodoControl';
-import '../../../App.css';
 import { Todo } from '../model/Todo';
 import { TodoId } from '../model/value-object/todo-id';
 import { TodoRepository } from '../model/TodoRepository';

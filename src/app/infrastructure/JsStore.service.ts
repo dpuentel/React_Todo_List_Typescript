@@ -1,6 +1,6 @@
 import * as JsStore from 'jsstore';
 import { IDataBase, DATA_TYPE, ITable } from 'jsstore';
-import { Todo } from '../model/Todo';
+import { Todo } from '../../components/todo-list/model/Todo';
 declare var require: any;
 
 const getWorkerPath = () => {

@@ -1,6 +1,6 @@
-import { Todo } from '../model/Todo';
-import { TodoRepository } from '../model/TodoRepository';
-import { TodoId } from '../model/value-object/todo-id';
+import { Todo } from '../../components/todo-list/model/Todo';
+import { TodoRepository } from '../../components/todo-list/model/TodoRepository';
+import { TodoId } from '../../components/todo-list/model/value-object/todo-id';
 import { BaseRepositoryJsStore } from './BaseRepositoryJsStore';
 import { initJsStore } from './JsStore.service';
 

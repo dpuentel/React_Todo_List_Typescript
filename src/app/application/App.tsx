@@ -1,7 +1,8 @@
 import React from 'react';
-import { TodoComponent } from './components/todo-list/application/TodoComponent';
-import { TodoRepositoryJsStore } from './components/todo-list/infrastructure/TodoRepositoryJsStore';
-import { TodoRepository } from './components/todo-list/model/TodoRepository';
+import { TodoComponent } from '../../components/todo-list/application/TodoComponent';
+import { TodoRepository } from '../../components/todo-list/model/TodoRepository';
+import { TodoRepositoryJsStore } from '../infrastructure/TodoRepositoryJsStore';
+import './App.css';
 
 /* export function App() {
   return <TodoComponent />;
