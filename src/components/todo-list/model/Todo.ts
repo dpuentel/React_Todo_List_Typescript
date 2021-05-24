@@ -8,7 +8,7 @@ export class Todo {
   createdAt: number;
   workingTime: number;
   workingStartTime!: number;
-  woekingEndTime!: number;
+  workingEndTime!: number;
   started: boolean;
   notes: string;
   parentId!: string;

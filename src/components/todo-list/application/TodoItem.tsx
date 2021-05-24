@@ -5,7 +5,7 @@ import { TodoId } from '../model/value-object/todo-id';
 interface Props {
   todo: Todo;
   toogleTodoCompleted: (todoId: TodoId) => void;
-  removeTodo: (id: string) => void;
+  removeTodo: (todo: Todo) => void;
 }
 
 export function TodoItem({ todo, toogleTodoCompleted, removeTodo }: Props) {
@@ -16,7 +16,7 @@ export function TodoItem({ todo, toogleTodoCompleted, removeTodo }: Props) {
   const handleRemoveTodo = (e: React.MouseEvent<HTMLElement>) => {
     console.log(e);
     e.stopPropagation();
-    removeTodo(todo.id.get());
+    removeTodo(todo);
   };
 
   const getTodoCreateDateFormated: () => string = () => {

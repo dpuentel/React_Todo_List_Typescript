@@ -5,7 +5,7 @@ import { TodoItem } from './TodoItem';
 interface Props {
   todos: Todo[];
   toogleTodoCompleted: (todoId: TodoId) => void;
-  removeTodo: (id: string) => void;
+  removeTodo: (todo: Todo) => void;
 }
 
 export function TodoList({ todos, toogleTodoCompleted, removeTodo }: Props) {

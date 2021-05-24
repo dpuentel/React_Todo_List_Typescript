@@ -2,10 +2,10 @@ import React, { Fragment } from 'react';
 import { Todo } from '../model/Todo';
 
 interface Props {
-  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+  addTodo: (todo: Todo) => Promise<void>;
 }
 
-export function TodoAdd({ setTodos }: Props) {
+export function TodoAdd({ addTodo }: Props) {
   const todoTaskInputRef: React.RefObject<HTMLInputElement> = React.createRef();
 
   const getInputValue: () => string = () => {
@@ -26,9 +26,7 @@ export function TodoAdd({ setTodos }: Props) {
     const task = getInputValue();
     if (task === '') return;
 
-    setTodos((prevTodos: Todo[]) => {
-      return [...prevTodos, new Todo(task)];
-    });
+    addTodo(new Todo(task));
 
     clearInputValue();
   };

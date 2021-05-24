@@ -1,15 +1,10 @@
-import React from 'react';
-import { Todo } from '../model/Todo';
-
 interface Props {
-  todos: Todo[];
-  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+  deleteCompleted: () => Promise<void>;
 }
 
-export function TodoRemoveCompleted({ todos, setTodos }: Props) {
-  const handleClearCompleted = () => {
-    const newTodos = todos.filter((todo: Todo) => !todo.completed);
-    setTodos(newTodos);
+export function TodoRemoveCompleted({ deleteCompleted }: Props) {
+  const handleClearCompleted = async () => {
+    await deleteCompleted();
   };
 
   return <button onClick={handleClearCompleted}>➖ Clear completed tasks</button>;

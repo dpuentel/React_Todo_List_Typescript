@@ -4,9 +4,9 @@ import { TodoId } from '../model/value-object/todo-id';
 
 export class TodoRepositoryLocalStorage implements TodoRepository {
   private LOCAL_STORAGE_KEY: string = 'todoApp.todos';
-  async findById(todoId: TodoId): Promise<Todo[]> {
+  async findById(todoId: TodoId): Promise<Todo | undefined> {
     console.log(todoId);
-    return [new Todo('test')];
+    return new Todo('test');
   }
 
   async getAll(): Promise<Todo[]> {
@@ -27,6 +27,33 @@ export class TodoRepositoryLocalStorage implements TodoRepository {
   async setAll(todos: Todo[]) {
     return new Promise<void>((resolve) => {
       localStorage.setItem(this.LOCAL_STORAGE_KEY, JSON.stringify(todos));
+      resolve();
+    });
+  }
+
+  async set(todo: Todo) {
+    return new Promise<void>((resolve) => {
+      console.log(todo);
+      resolve();
+    });
+  }
+
+  async setCompleted(todo: Todo) {
+    return new Promise<void>((resolve) => {
+      console.log(todo);
+      resolve();
+    });
+  }
+
+  async delete(todo: Todo) {
+    return new Promise<void>((resolve) => {
+      console.log(todo);
+      resolve();
+    });
+  }
+
+  async deleteCompleted() {
+    return new Promise<void>((resolve) => {
       resolve();
     });
   }
