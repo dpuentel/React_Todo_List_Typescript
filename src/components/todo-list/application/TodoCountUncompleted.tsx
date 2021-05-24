@@ -1,16 +1,20 @@
+import React from 'react';
 import { Todo } from '../model/Todo';
 
-interface Props {
+interface PropsTodoCountUncompleted {
   todos: Todo[];
 }
-export function TodoCountUncompleted({ todos }: Props) {
-  const getUncompleatedTasks: () => number = () => {
-    return todos.filter((todo) => !todo.completed).length;
-  };
 
-  return (
-    <div>
-      <b>{getUncompleatedTasks()}</b> tasks remain to be finished.
-    </div>
-  );
+export class TodoCountUncompleted extends React.Component<PropsTodoCountUncompleted> {
+  private getUncompleatedTasks(): number {
+    return this.props.todos.filter((todo) => !todo.completed).length;
+  }
+
+  render() {
+    return (
+      <div>
+        <b>{this.getUncompleatedTasks()}</b> tasks remain to be finished.
+      </div>
+    );
+  }
 }
