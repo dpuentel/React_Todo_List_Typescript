@@ -20,7 +20,7 @@ export function TodoItem({ todo, toogleTodoCompleted, removeTodo }: Props) {
   };
 
   const getTodoCreateDateFormated: () => string = () => {
-    return todo.completedAt ? timestampToDateFormated(todo.createdAt) : '';
+    return todo.createdAt ? timestampToDateFormated(todo.createdAt) : '';
   };
 
   const getTodoCompletedDateFormated: () => string = () => {
