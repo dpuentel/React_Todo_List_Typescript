@@ -5,11 +5,12 @@ import '../../../App.css';
 import { Todo } from '../model/Todo';
 import { TodoId } from '../model/value-object/todo-id';
 import { TodoRepository } from '../model/TodoRepository';
-import { TodoRepositoryJsStore } from '../infrastructure/TodoRepositoryJsStore';
 
-export function TodoComponent() {
-  const todoRepository: TodoRepository = new TodoRepositoryJsStore();
+interface PropsTodoComponent {
+  todoRepository: TodoRepository;
+}
 
+export function TodoComponent({ todoRepository }: PropsTodoComponent) {
   const [todos, setTodos] = useState([new Todo('Tarea 1')]);
 
   useEffect(() => {
